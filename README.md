@@ -16,5 +16,9 @@
 [Назад](#content)
 <h3 align="center">
   <a href="#client"></a>
-  1.1 Формулировка лабораторной работы, например: "Разработать представления или хранимые процедуры для выполнения заданий."
+  Лабораторная работа №1
+  ### ER-model:
+  ![ER-model](https://github.com/BykovAlexandr/BD/blob/main/Модели/ER.jpg)
+  ### Relational model:
+  ![REL-model](https://github.com/BykovAlexandr/BD/blob/main/Модели/Реляционная%20модель.jpg)
 </h3>
