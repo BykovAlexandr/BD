@@ -1,3 +1,15 @@
+<h1 align="center">📊 БАЗЫ ДАННЫХ</h1>
+
+<div align="center">
+  
+  **Студент:** Быков Александр  
+  **Группа:** ПМИ-32БО  
+  **Вариант:** 7
+
+</div>
+
+---
+
 <h1 name="content" align="center">
   <a href="">
     <img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/>
