@@ -1,4 +1,9 @@
-<h1 name="content" align="center"><a href=""><img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/></a> MSSQL</h1>
+<h1 name="content" align="center">
+  <a href="">
+    <img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/>
+  </a> 
+  MSSQL
+</h1>
 
 <p align="center">
   <a href="#-lab1"><img alt="lab1" src="https://img.shields.io/badge/Lab1-blue"></a> 
@@ -12,13 +17,15 @@
   <a href="#-lab9"><img alt="lab9" src="https://img.shields.io/badge/Lab9-violet"></a> 
 </p>
 
-# <img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/> Lab1
+# <a id="-lab1"></a><img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/> Lab1
 [Назад](#content)
+
 <h3 align="center">
-  <a href="#client"></a>
   Лабораторная работа №1
-  ### ER-model:
-  ![ER-model](https://github.com/BykovAlexandr/BD/blob/main/Модели/ER.jpg)
-  ### Relational model:
-  ![REL-model](https://github.com/BykovAlexandr/BD/blob/main/Модели/Реляционная%20модель.jpg)
 </h3>
+
+### ER-model:
+![ER-model](https://github.com/BykovAlexandr/BD/blob/main/Модели/ER.jpg)
+
+### Relational model:
+![REL-model](https://github.com/BykovAlexandr/BD/blob/main/Модели/Реляционная%20модель.jpg)
