@@ -51,7 +51,7 @@
 
 ### Создание SQL таблицы:
 
-sql
+```sql
 CREATE TABLE Группа (
     ID_группы INT PRIMARY KEY,
     Название NVARCHAR(100) NOT NULL,
