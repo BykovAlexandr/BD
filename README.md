@@ -42,10 +42,16 @@
 ### Relational model:
 ![REL-model](https://github.com/BykovAlexandr/BD/blob/main/Модели/Реляционная%20модель.jpg)
 
+# <a id="-lab2"></a><img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/> Lab2
+[Назад](#content)
+
 <h3 align="center">
   Лабораторная работа №2
 </h3>
+
 ### Создание SQL таблицы:
+
+```sql
 CREATE TABLE Группа (
     ID_группы INT PRIMARY KEY,
     Название NVARCHAR(100) NOT NULL,
