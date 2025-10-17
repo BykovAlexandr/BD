@@ -51,7 +51,7 @@
 
 ### Создание SQL таблицы:
 
-```sql
+sql
 CREATE TABLE Группа (
     ID_группы INT PRIMARY KEY,
     Название NVARCHAR(100) NOT NULL,
@@ -122,5 +122,17 @@ CREATE TABLE Больничный (
     FOREIGN KEY (ID_ребенка) REFERENCES Ребенок(ID_ребенка),
     FOREIGN KEY (ID_болезни) REFERENCES Болезнь(ID_болезни)
 );
-### Таблица Болезнь:
-![Таблица Болезнь](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок1.png)
+
+
+### Таблицы базы данных:
+
+![Рисунок1](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок1.png)
+![Рисунок2](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок2.png)
+![Рисунок3](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок3.png)
+![Рисунок4](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок4.png)
+![Рисунок5](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок5.png)
+![Рисунок6](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок6.png)
+![Рисунок7](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок7.png)
+![Рисунок8](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок8.png)
+![Рисунок9](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок9.png)
+
