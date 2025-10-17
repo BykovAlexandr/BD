@@ -124,15 +124,22 @@ CREATE TABLE Больничный (
 );
 ```
 
-### Таблицы базы данных:
-
+### Таблица Болезнь:
 ![Рисунок1](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок1.png)
+### Таблица Больничный:
 ![Рисунок2](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок2.png)
+### Таблица Ведет:
 ![Рисунок3](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок3.png)
+### Таблица Воспитатель:
 ![Рисунок4](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок4.png)
+### Таблица Группа:
 ![Рисунок5](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок5.png)
+### Таблица Измерения:
 ![Рисунок6](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок6.png)
+### Таблица Ребенок:
 ![Рисунок7](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок7.png)
+### Таблица Родственник:
 ![Рисунок8](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок8.png)
+### Диаграмма таблицы:
 ![Рисунок9](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок9.png)
 
