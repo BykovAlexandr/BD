@@ -122,7 +122,7 @@ CREATE TABLE Больничный (
     FOREIGN KEY (ID_ребенка) REFERENCES Ребенок(ID_ребенка),
     FOREIGN KEY (ID_болезни) REFERENCES Болезнь(ID_болезни)
 );
-
+```
 
 ### Таблицы базы данных:
 
