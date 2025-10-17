@@ -123,4 +123,4 @@ CREATE TABLE Больничный (
     FOREIGN KEY (ID_болезни) REFERENCES Болезнь(ID_болезни)
 );
 ### Таблица Болезнь:
-!(https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок1.jpg)
+![Таблица Болезнь](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок1.jpg)
