@@ -56,71 +56,66 @@ CREATE TABLE Группа (
     ID_группы INT PRIMARY KEY,
     Название NVARCHAR(100) NOT NULL,
     Программа NVARCHAR(50),
-    Макс_детей INT,
-    Возраст SMALLINT
+    Макс_детей INT CHECK (Макс_детей > 0),
+    Возраст SMALLINT CHECK (Возраст > 0)
 );
 
 CREATE TABLE Воспитатель (
     ID_воспитателя INT PRIMARY KEY,
-    Имя NVARCHAR(50),
-    Фамилия NVARCHAR(50),
+    Имя NVARCHAR(50) NOT NULL,
+    Фамилия NVARCHAR(50) NOT NULL,
     Отчество NVARCHAR(50),
     Телефон NVARCHAR(20)
 );
 
 CREATE TABLE Ребенок (
     ID_ребенка INT PRIMARY KEY,
-    Имя NVARCHAR(50),
-    Фамилия NVARCHAR(50),
+    Имя NVARCHAR(50) NOT NULL,
+    Фамилия NVARCHAR(50) NOT NULL,
     Отчество NVARCHAR(50),
-    Дата_рождения DATE,
+    Дата_рождения DATE NOT NULL,
     Адрес NVARCHAR(200),
     ID_группы INT,
     FOREIGN KEY (ID_группы) REFERENCES Группа(ID_группы)
 );
 
 CREATE TABLE Ведет (
-    ID_воспитателя INT,
-    ID_группы INT,
-    PRIMARY KEY (ID_воспитателя, ID_группы),
-    FOREIGN KEY (ID_воспитателя) REFERENCES Воспитатель(ID_воспитателя),
-    FOREIGN KEY (ID_группы) REFERENCES Группа(ID_группы)
+    ID_воспитателя INT REFERENCES Воспитатель(ID_воспитателя),
+    ID_группы INT REFERENCES Группа(ID_группы),
+    PRIMARY KEY (ID_воспитателя, ID_группы)
 );
 
 CREATE TABLE Родственник (
     ID_родственника INT PRIMARY KEY,
-    Имя NVARCHAR(50),
-    Фамилия NVARCHAR(50),
+    Имя NVARCHAR(50) NOT NULL,
+    Фамилия NVARCHAR(50) NOT NULL,
     Отчество NVARCHAR(50),
     Место_работы NVARCHAR(200),
     Телефон NVARCHAR(20),
-    Тип_родства NVARCHAR(20),
-    ID_ребенка INT,
-    FOREIGN KEY (ID_ребенка) REFERENCES Ребенок(ID_ребенка)
+    Тип_родства NVARCHAR(20) NOT NULL,
+    ID_ребенка INT REFERENCES Ребенок(ID_ребенка)
 );
 
 CREATE TABLE Измерения (
     ID_измерения INT PRIMARY KEY,
-    Рост DECIMAL(5,2),
-    Вес DECIMAL(5,2),
-    Дата DATE,
-    ID_ребенка INT,
-    FOREIGN KEY (ID_ребенка) REFERENCES Ребенок(ID_ребенка)
+    Рост DECIMAL(5,2) CHECK (Рост > 0),
+    Вес DECIMAL(5,2) CHECK (Вес > 0),
+    Дата DATE NOT NULL,
+    ID_ребенка INT REFERENCES Ребенок(ID_ребенка)
 );
 
 CREATE TABLE Болезнь (
     ID_болезни INT PRIMARY KEY,
-    Название NVARCHAR(50)
+    Название NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Больничный (
     ID_больничного INT PRIMARY KEY,
-    Дата_н DATE,
-    Дата_к DATE,
-    ID_ребенка INT,
-    ID_болезни INT,
-    FOREIGN KEY (ID_ребенка) REFERENCES Ребенок(ID_ребенка),
-    FOREIGN KEY (ID_болезни) REFERENCES Болезнь(ID_болезни)
+    Дата_н DATE NOT NULL,
+    Дата_к DATE NOT NULL,
+    ID_ребенка INT REFERENCES Ребенок(ID_ребенка),
+    ID_болезни INT REFERENCES Болезнь(ID_болезни),
+    CHECK (Дата_к >= Дата_н)
 );
 ```
 
