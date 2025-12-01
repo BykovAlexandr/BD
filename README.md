@@ -138,5 +138,6 @@ CREATE TABLE Больничный (
 ### Диаграмма таблицы:
 ![Рисунок9](https://github.com/BykovAlexandr/BD/blob/main/скрины/Рисунок9.png)
 
+<a id="-lab3"></a><img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/> Lab3
 <h3 align="center"> Лабораторная работа №3 </h3>
 [Part 1-2](/Модели/Быков_ПМИ-32БО(ЛАБ3).docx)
