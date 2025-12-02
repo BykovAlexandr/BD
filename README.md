@@ -143,3 +143,9 @@ CREATE TABLE Больничный (
 <h3 align="center"> Лабораторная работа №3 </h3>
 
 [Part 1-2](/Модели/Быков_ПМИ-32БО(ЛАБ3).docx)
+
+# <a id="-lab1"></a><img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/> Lab4
+[Назад](#content)
+<h3 align="center"> Лабораторная работа №4 </h3>
+
+[Part 1-2](/Модели/Быков_ПМИ-32БО(ЛАБ4).docx)
