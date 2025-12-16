@@ -1,0 +1,146 @@
+--графовые таблицы
+CREATE TABLE Child (
+    ID_ребенка INT PRIMARY KEY,
+    Имя NVARCHAR(50) NOT NULL,
+    Фамилия NVARCHAR(50) NOT NULL,
+    Отчество NVARCHAR(50),
+    Дата_рождения DATE NOT NULL,
+    Адрес NVARCHAR(200)
+) AS NODE;
+
+CREATE TABLE [Group] (
+    ID_группы INT PRIMARY KEY,
+    Название NVARCHAR(100) NOT NULL,
+    Программа NVARCHAR(50),
+    Макс_детей INT CHECK (Макс_детей > 0),
+    Возраст SMALLINT CHECK (Возраст > 0)
+) AS NODE;
+
+CREATE TABLE Educator (
+    ID_воспитателя INT PRIMARY KEY,
+    Имя NVARCHAR(50) NOT NULL,
+    Фамилия NVARCHAR(50) NOT NULL,
+    Отчество NVARCHAR(50),
+    Телефон NVARCHAR(20)
+) AS NODE;
+
+CREATE TABLE Relative (
+    ID_родственника INT PRIMARY KEY,
+    Имя NVARCHAR(50) NOT NULL,
+    Фамилия NVARCHAR(50) NOT NULL,
+    Отчество NVARCHAR(50),
+    Место_работы NVARCHAR(200),
+    Телефон NVARCHAR(20),
+    Тип_родства NVARCHAR(20) NOT NULL
+) AS NODE;
+
+CREATE TABLE Measurement (
+    ID_измерения INT PRIMARY KEY,
+    Рост DECIMAL(5,2) CHECK (Рост > 0),
+    Вес DECIMAL(5,2) CHECK (Вес > 0),
+    Дата DATE NOT NULL
+) AS NODE;
+
+CREATE TABLE Disease (
+    ID_болезни INT PRIMARY KEY,
+    Название NVARCHAR(50) NOT NULL
+) AS NODE;
+
+CREATE TABLE SickLeave (
+    ID_больничного INT PRIMARY KEY,
+    Дата_н DATE NOT NULL,
+    Дата_к DATE NOT NULL,
+    CHECK (Дата_к >= Дата_н)
+) AS NODE;
+
+-- Создание реберных таблиц
+CREATE TABLE BELONGS_TO AS EDGE;
+CREATE TABLE TEACHES AS EDGE;
+CREATE TABLE PARENT_OF AS EDGE;
+CREATE TABLE HAS_MEASUREMENT AS EDGE;
+CREATE TABLE HAS_SICKLEAVE AS EDGE;
+CREATE TABLE DIAGNOSED_WITH AS EDGE;
+
+-- Заполнение узлов данными из реляционных таблиц
+INSERT INTO Child (ID_ребенка, Имя, Фамилия, Отчество, Дата_рождения, Адрес)
+SELECT ID_ребенка, Имя, Фамилия, Отчество, Дата_рождения, Адрес
+FROM Ребенок;
+
+INSERT INTO [Group] (ID_группы, Название, Программа, Макс_детей, Возраст)
+SELECT ID_группы, Название, Программа, Макс_детей, Возраст
+FROM Группа;
+
+INSERT INTO Educator (ID_воспитателя, Имя, Фамилия, Отчество, Телефон)
+SELECT ID_воспитателя, Имя, Фамилия, Отчество, Телефон
+FROM Воспитатель;
+
+INSERT INTO Relative (ID_родственника, Имя, Фамилия, Отчество, Место_работы, Телефон, Тип_родства)
+SELECT ID_родственника, Имя, Фамилия, Отчество, Место_работы, Телефон, Тип_родства
+FROM Родственник;
+
+INSERT INTO Measurement (ID_измерения, Рост, Вес, Дата)
+SELECT ID_измерения, Рост, Вес, Дата
+FROM Измерения;
+
+INSERT INTO Disease (ID_болезни, Название)
+SELECT ID_болезни, Название
+FROM Болезнь;
+
+INSERT INTO SickLeave (ID_больничного, Дата_н, Дата_к)
+SELECT ID_больничного, Дата_н, Дата_к
+FROM Больничный;
+
+-- Заполнение ребер данными из реляционных таблиц
+-- Ребенок принадлежит группе
+INSERT INTO BELONGS_TO ($from_id, $to_id)
+SELECT 
+    c.$node_id,
+    g.$node_id
+FROM Ребенок r
+JOIN Child c ON r.ID_ребенка = c.ID_ребенка
+JOIN [Group] g ON r.ID_группы = g.ID_группы;
+
+-- Воспитатель ведет группу
+INSERT INTO TEACHES ($from_id, $to_id)
+SELECT 
+    e.$node_id,
+    g.$node_id
+FROM Ведет v
+JOIN Educator e ON v.ID_воспитателя = e.ID_воспитателя
+JOIN [Group] g ON v.ID_группы = g.ID_группы;
+
+-- Родственник является родителем ребенка
+INSERT INTO PARENT_OF ($from_id, $to_id)
+SELECT 
+    rel.$node_id,
+    c.$node_id
+FROM Родственник r
+JOIN Relative rel ON r.ID_родственника = rel.ID_родственника
+JOIN Child c ON r.ID_ребенка = c.ID_ребенка;
+
+-- Ребенок имеет измерения
+INSERT INTO HAS_MEASUREMENT ($from_id, $to_id)
+SELECT 
+    c.$node_id,
+    m.$node_id
+FROM Измерения i
+JOIN Child c ON i.ID_ребенка = c.ID_ребенка
+JOIN Measurement m ON i.ID_измерения = m.ID_измерения;
+
+-- Ребенок имеет больничный
+INSERT INTO HAS_SICKLEAVE ($from_id, $to_id)
+SELECT 
+    c.$node_id,
+    s.$node_id
+FROM Больничный b
+JOIN Child c ON b.ID_ребенка = c.ID_ребенка
+JOIN SickLeave s ON b.ID_больничного = s.ID_больничного;
+
+-- Больничный связан с болезнью
+INSERT INTO DIAGNOSED_WITH ($from_id, $to_id)
+SELECT 
+    s.$node_id,
+    d.$node_id
+FROM Больничный b
+JOIN SickLeave s ON b.ID_больничного = s.ID_больничного
+JOIN Disease d ON b.ID_болезни = d.ID_болезни;
