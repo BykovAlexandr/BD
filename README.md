@@ -158,6 +158,7 @@ CREATE TABLE Больничный (
 # <a id="-lab1"></a><img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/> Lab6
 [Назад](#content)
 <h3 align="center"> Лабораторная работа №6 </h3>
+
 [Схема](/lab6/Схема_узлов_и_ребер.png)
 [Скрипт](/lab6/Быков_ПМИ-32БО(ЛАБ6-Скрипт).txt)
 [Запросы](/lab6/Быков_ПМИ-32БО(ЛАБ6-Запросы).docx)
