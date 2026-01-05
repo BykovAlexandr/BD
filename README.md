@@ -180,7 +180,7 @@ CREATE TABLE Больничный (
 [File](/Быков_ПМИ_32БО(ЛАБ7).docx)
 
 
-# <a id="-lab1"></a><img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/> Lab5
+# <a id="-lab1"></a><img src="https://github.com/user-attachments/assets/e080adec-6af7-4bd2-b232-d43cb37024ac" width="20" height="20"/> Lab8
 [Назад](#content)
 <h3 align="center"> Лабораторная работа №8 </h3>
 
